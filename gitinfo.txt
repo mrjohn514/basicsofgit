@@ -1,0 +1,142 @@
+
+-----------------------basics of git-----------------
+
+problem 1: u have projectx code in hardisk and hardisk failure or damages and code lost
+problme 2 if multilple people want to work on same code
+problem 3: u have added some changes or addded some feature and ur app crashed
+
+git is dvcs  decentralised version control system which mainteain all version of ur project 
+
+decentrailise means different tems can develop different features simultaneosly on different branches and when work complete they can merge work on main
+
+
+git : basicaly it is version control system which helps us to track the changes in our projects 
+1 not only this for example if there are mulltiple memebers and in project we roll out feature a then b and then c and after rolling c our app crashed now we want to remove the changes
+and go to previous step so git does this for us 
+
+now how it starts:
+
+
+
+-------------------------working or starting of git----------------
+firstly we add git to our project by command git intit;
+
+lest take file phone.txt in our projext and i added some code in this file and save it 
+then if i write cmnd git status
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+then this come beacase git sayinig i havent added the changes in the file phonetxt to my set where i keep the snapshot of changes done
+
+
+
+step 2: so we tell git to start adding chages to set/collection by $$git add filename or $$git add . this wiil tell to keep record all changes
+ in whole project (basicaly recored any change in any file dont have to write every file oneby one)
+
+step 3: now the changes that he added into the set of record or after taking snapshot of changes done in phont.txt and ading it to collection or record where these sanpshot saved 
+he want to give name to this snapshot so that it is more convient for othere to what had we changed in files;
+
+command: git commit -m "message like comomand::added the touch screen feature in phone.txt";
+
+
+
+
+---------------to rollback changs basically to move to previous comit;-----------------------
+
+1 we use command git checkout <commit id > and now head will detach and move to this commit id 
+2 after this command is run then file will get back to that stage when this above commit is done
+
+
+
+---------concept of checkout----------------------------
+ 1->lets say we done first commmit A
+then there is pointer head which will point A;
+
+2-> now we done antoher commit B
+then head will move to B
+and so on with next commits
+
+3 but when i say cheecoout this head will detach from latest commit done  and point to that git checkout comiitid wala commit 
+
+
+-------------concepts of head-----------------
+HEAD: the current commit your repo is on. Most of the time HEAD points to the latest commit in your current branch, but that doesn't have to be the case.
+ HEAD really just means "what is my repo currently pointing at".
+
+In the event that the commit HEAD refers to is not the tip of any branch, this is called a "detached head".
+
+
+
+--------------concept of master---------------------------
+master: the name of the default branch that git creates for you when first creating a repo. In most cases, "master" means "the main branch". 
+Most shops have everyone pushing to master, and master is considered the definitive view of the repo. 
+But it's also common for release branches to be made off of master for releasing.
+ Your local repo has its own master branch, that almost always follows the master of a remote repo.
+
+
+
+--------------------------concept of origin-----------------------
+origin: the default name that git gives to your main remote repo. Your box has its own repo, 
+and you most likely push out to some remote repo that you and all your coworkers push to.
+ That remote repo is almost always called origin, but it doesn't have to be.
+basically a short name for remote repo so that u dont have to write reomte name again and again 
+
+
+if i have two remote repos lets say one is john/completehojo  and another is frien/completehojo;
+Then: if i want to use fetch/push then i will first add remote repo in my gitit repo of project
+basically typing command  $$$$$git remote add origin http://john/completehojo.git;           //sets the new remote repo
+
+
+example
+PS D:\COD2\vd\contact_list> git remote add origin https://john/completehojo.git
+PS D:\COD2\vd\contact_list> git remote -v
+origin  https://github.com/mrjohn/completehojo.git (fetch)
+origin  https://github.com/mrjohn/completehojo.git (push)
+
+---------------------and if u add git remote add friend https://friend/completehojo.git--------------------------
+ PS D:\COD2\vd\contact_list> git remote -v
+origin  https://github.com/mrjohn/completehojo.git (fetch)
+origin  https://github.com/mrjohn/completehojo.git (push)
+friend  https://github.com/mrjohn/completehojo.git (fetch)
+friend  https://github.com/mrjohn/completehojo.git (push)
+
+
+
+
+
+///--------------------------------steps to intilaise the git in project till pushing into github-------------
+step 1: initialise the projject folder with  &&&& git init;
+step 2: track the changes  &&&& git add .
+step 3: give name to the tracked changes &&&& git add commit -m "first commit"
+step 4: add remote repo where u want to push  &&&& git remote add origin http::mrjoohn/complete.git
+step 5: confirm the remote added or not git remote -v
+step 6: check the which branch head on &&&git status 
+step 7: push to github &&& git push -u origin master
+done ;)
+
+
+
+
+
+
+
+
+
+
+------------------------------git hub-----------------
+there is remote folder/repositry which different teams used to communicate or cordinate with each othere
+every team takse a copy from this remote folder and after doing work pushed back to it
+
+then this remote folder is directly linked to our server which is hosting our website from where all usere are watcing/looking at our website from browsers
+
+now this common repo or remote folder  is present/hosted at internet on provider such as github  gitlab etc
+
+
+
+
+
+
+
